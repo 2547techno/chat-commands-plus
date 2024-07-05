@@ -2,6 +2,7 @@
     "$schema": "https://raw.githubusercontent.com/Chatterino/chatterino2/master/docs/plugin-info.schema.json",
     "name": "Chat Commands+",
     "description": "Get the list of moderators, vips, founders, and number of chatters in the current channel",
+    "homepage": "https://github.com/2547techno/chat-commands-plus",
     "authors": ["2547techno"],
     "tags": ["mods", "moderators", "vips", "founders", "chatters", "commands"],
     "version": "0.0.1",
