@@ -12,7 +12,7 @@ local function mods(ctx)
     c2.log(c2.LogLevel.Debug, "loading mods for " .. channel .. "...")
     local req = c2.HTTPRequest.create(c2.HTTPMethod.Get, url)
     req:on_success(function(res)
-        local json_res = json.decode(res.data(res))
+        local json_res = json.decode(res:data())
 
         c2.log(c2.LogLevel.Debug, "loaded " .. #json_res .. " mods")
         if #json_res == 0 then
@@ -27,7 +27,7 @@ local function mods(ctx)
         end
     end)
     req:on_error(function(res)
-        local status_code = res.status(res)
+        local status_code = res:status()
 
         if status_code == 400 then
             ctx.channel:add_system_message("There are no moderators in this channel!")
@@ -46,7 +46,7 @@ local function vips(ctx)
     c2.log(c2.LogLevel.Debug, "loading vips for " .. channel .. "...")
     local req = c2.HTTPRequest.create(c2.HTTPMethod.Get, url)
     req:on_success(function(res)
-        local json_res = json.decode(res.data(res))
+        local json_res = json.decode(res:data())
 
         c2.log(c2.LogLevel.Debug, "loaded " .. #json_res .. " vips")
         if #json_res == 0 then
@@ -61,7 +61,7 @@ local function vips(ctx)
         end
     end)
     req:on_error(function(res)
-        local status_code = res.status(res)
+        local status_code = res:status()
 
         if status_code == 400 then
             ctx.channel:add_system_message("There are no VIPs in this channel!")
@@ -80,7 +80,7 @@ local function founders(ctx)
     c2.log(c2.LogLevel.Debug, "loading founders for " .. channel .. "...")
     local req = c2.HTTPRequest.create(c2.HTTPMethod.Get, url)
     req:on_success(function(res)
-        local json_res = json.decode(res.data(res))
+        local json_res = json.decode(res:data())
 
         c2.log(c2.LogLevel.Debug, "loaded " .. #json_res .. " founders")
         if #json_res == 0 then
@@ -95,7 +95,7 @@ local function founders(ctx)
         end
     end)
     req:on_error(function(res)
-        local status_code = res.status(res)
+        local status_code = res:status()
 
         if status_code == 400 then
             ctx.channel:add_system_message("There are no founders in this channel!")
@@ -114,7 +114,7 @@ local function chatters(ctx)
     c2.log(c2.LogLevel.Debug, "loading chatters count for " .. channel .. "...")
     local req = c2.HTTPRequest.create(c2.HTTPMethod.Get, url)
     req:on_success(function(res)
-        local json_res = json.decode(res.data(res))
+        local json_res = json.decode(res:data())
         local count = json_res.count
 
         c2.log(c2.LogLevel.Debug, "loaded chatters count: " .. count)
